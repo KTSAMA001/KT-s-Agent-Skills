@@ -71,6 +71,7 @@ git clone https://github.com/KTSAMA001/KT-s-Agent-Skills.git $HOME\.copilot
 │
 └── experiences/               # 你的第二大脑 (Markdown)
     ├── unity/                 # Unity 引擎、组件、生命周期
+    │   └── docs/              # 存放架构图解、完整复盘等大型文档
     ├── csharp/                # C# 语法、.NET 特性
     ├── shader/                # ShaderLab, HLSL, 渲染管线
     ├── git/                   # 版本控制技巧
@@ -106,3 +107,4 @@ git pull
 
 ---
 *Created by KT's Copilot Agent*
+
