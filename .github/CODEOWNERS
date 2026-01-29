@@ -1,0 +1,52 @@
+# CODEOWNERS - 代码所有者配置
+# 此文件定义了需要审批特定文件更改的用户
+# 
+# 使用说明：
+# 1. 此文件需要配合 GitHub 分支保护规则才能生效
+# 2. 在仓库设置中启用 "Require review from Code Owners"
+# 3. 格式: <file-pattern> <@username-or-team>
+#
+# 了解更多: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# ============================================
+# 默认所有者
+# ============================================
+# 所有文件默认需要 KTSAMA001 审批
+* @KTSAMA001
+
+# ============================================
+# Skill 文件 (核心逻辑)
+# ============================================
+# Agent Skill 文件是核心配置，需要仔细审查
+/skills/ @KTSAMA001
+/skills/**/*.md @KTSAMA001
+
+# ============================================
+# 经验文档 (可以更灵活)
+# ============================================
+# 如果您想让经验文档更容易更新，可以取消这些规则的注释
+# 或者设置为不同的审批者
+
+# /experiences/ @KTSAMA001
+
+# 特定领域的文档可以指定不同的审批者
+# /experiences/unity/ @KTSAMA001
+# /experiences/shader/ @KTSAMA001
+# /experiences/csharp/ @KTSAMA001
+
+# ============================================
+# 配置文件
+# ============================================
+# 重要的配置文件需要审批
+/.github/ @KTSAMA001
+/.gitignore @KTSAMA001
+/README.md @KTSAMA001
+/LICENSE @KTSAMA001
+
+# ============================================
+# 注意事项
+# ============================================
+# 1. 此文件本身的修改也需要代码所有者审批
+# 2. 如果启用了 "Require review from Code Owners"，
+#    相关文件的 PR 必须得到这里指定用户的审批才能合并
+# 3. 对于个人项目，您可以保持简单的配置 (只有第一行 * @KTSAMA001)
