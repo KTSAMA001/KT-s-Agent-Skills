@@ -1,6 +1,13 @@
-# 🧠 KT's Copilot Agent Skills (Experience Logger)
+# 🧠 KT's Copilot Agent Skills
 
-一个持续学习型的 AI Agent Skill，具备**记忆**、**成长**和**自我修正**能力。
+一套持续学习型的 AI Agent Skills，具备**经验记录**、**知识沉淀**和**自我修正**能力。
+
+## 📦 包含技能
+
+| 技能 | 用途 | 存储位置 |
+|------|------|----------|
+| **experience-logger** | 记录实践经验、问题解决方案、踩坑记录 | `experiences/` |
+| **knowledge-logger** | 记录理论知识、概念原理、技术规范 | `knowledge/` |
 
 ---
 
@@ -10,7 +17,7 @@
 - [⚠️ 重要说明](#重要说明)
 - [核心功能](#核心功能)
 - [使用指南](#使用指南)
-- [知识库结构](#知识库结构)
+- [存储结构](#存储结构)
 - [同步与备份](#同步与备份)
 - [AI 操作指南](#ai-操作指南)
 - [详细说明](#详细说明)
@@ -37,11 +44,16 @@ git clone https://github.com/KTSAMA001/KT-s-Agent-Skills.git $HOME\.copilot
 
 如果 Agent 能识别并激活 `experience-logger` Skill，即表示安装成功。
 
+> "记一下这个知识点"
+
+如果 Agent 能识别并激活 `knowledge-logger` Skill，即表示知识记录功能可用。
+
 ### Claude Code 支持（可选）
 
 ```bash
 mkdir -p ~/.claude/skills
 ln -sf ~/.copilot/skills/experience-logger ~/.claude/skills/experience-logger
+ln -sf ~/.copilot/skills/knowledge-logger ~/.claude/skills/knowledge-logger
 ln -sf ~/.copilot/CLAUDE.md ~/.claude/CLAUDE.md
 ```
 
@@ -119,9 +131,11 @@ ln -sf ~/.copilot/CLAUDE.md ~/.claude/CLAUDE.md
 
 ---
 
-## 知识库结构
+## 存储结构
 
-所有经验以 Markdown 格式保存在 `experiences/` 目录：
+### 经验库 (experiences/)
+
+实践经验、问题解决方案、踩坑记录：
 
 ```
 experiences/
@@ -134,6 +148,28 @@ experiences/
 ├── tools/     # Blender, Photoshop 等
 └── general/   # 通用算法、架构设计
 ```
+
+### 知识库 (knowledge/)
+
+理论知识、概念原理、技术规范：
+
+```
+knowledge/
+├── ai/           # AI 相关（Agent Skills 规范等）
+├── graphics/     # 图形学（渲染管线、光照等）
+├── unity/        # Unity 原理（URP、SRP 等）
+├── programming/  # 编程（设计模式、算法等）
+├── hlsl/         # HLSL（语法、语义等）
+└── tools/        # 工具知识
+```
+
+### 经验 vs 知识
+
+| 维度 | 经验 (Experience) | 知识 (Knowledge) |
+|------|-------------------|------------------|
+| 来源 | 实际开发、踩坑、调试 | 书籍、文档、规范 |
+| 格式 | 问题 → 解决方案 → 验证 | 概念 → 原理 → 要点 |
+| 目的 | 记录"怎么做" | 理解"是什么" |
 
 ### 经验质量标记
 
@@ -208,8 +244,10 @@ git pull
 
 | 用途 | 路径 |
 |------|------|
-| Skills 定义 | `~/.copilot/skills/experience-logger/SKILL.md` |
+| 经验记录技能 | `~/.copilot/skills/experience-logger/SKILL.md` |
+| 知识记录技能 | `~/.copilot/skills/knowledge-logger/SKILL.md` |
 | 经验数据目录 | `~/.copilot/experiences/` |
+| 知识数据目录 | `~/.copilot/knowledge/` |
 | Claude Code 全局指令 | `~/.copilot/CLAUDE.md` |
 
 ### 操作原则
