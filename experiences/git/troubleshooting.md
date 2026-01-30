@@ -123,3 +123,143 @@ git config user.email "<新邮箱>"
 
 ---
 
+
+---
+
+## Git HTTPS 拉取失败，改用 SSH 协议解决
+
+**日期**：2026-01-30  
+**标签**：#git #https #ssh #网络 #connection-reset  
+**状态**：✅ 已验证  
+**适用版本**：Git 2.x+
+
+**问题/场景**：
+
+在已存在的 Git 仓库执行 `git pull` 或 `git fetch` 时报错：
+- `fatal: unable to access 'https://xxx.git/': Recv failure: Connection was aborted`
+- `fatal: unable to access 'https://xxx.git/': Recv failure: Connection was reset`
+
+但将仓库**克隆到新位置却可以成功**，说明网络本身没问题。
+
+**排查步骤**：
+
+1. **确认网络连通性**：
+   ```powershell
+   # 测试能否访问 Git 服务器
+   Invoke-WebRequest -Uri "https://你的gitlab地址" -Method Head -TimeoutSec 10
+   ```
+
+2. **检查仓库根目录**：
+   ```powershell
+   # 可能在子目录操作，需找到真正的 .git 所在位置
+   git rev-parse --show-toplevel
+   ```
+
+3. **尝试增大 HTTP 缓冲区**（无效但可尝试）：
+   ```powershell
+   git config http.postBuffer 524288000
+   ```
+
+4. **运行 GC 清理仓库**（无效但可尝试）：
+   ```powershell
+   git gc --prune=now
+   ```
+
+**解决方案/结论**：
+
+问题根因是 **HTTPS 协议在该仓库的连接被异常中断**，可能与以下因素有关：
+- 仓库历史较大，HTTPS 传输超时
+- 公司/学校网络对 HTTPS Git 流量有限制
+- SSL/TLS 握手问题
+
+**最终解决方案：将远程 URL 从 HTTPS 改为 SSH**：
+
+```powershell
+# 查看当前远程配置
+git remote -v
+
+# 将 HTTPS URL 改为 SSH URL
+git remote set-url origin git@你的gitlab地址:命名空间/仓库名.git
+
+# 再次尝试拉取
+git fetch origin
+git pull
+```
+
+**URL 格式对照**：
+
+| 协议 | 格式 |
+|------|------|
+| HTTPS | `https://gitlab.com/group/repo.git` |
+| SSH | `git@gitlab.com:group/repo.git` |
+
+**前提条件**：
+
+使用 SSH 需要先配置 SSH Key：
+```powershell
+# 生成 SSH Key（如果没有）
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# 查看公钥内容，添加到 GitLab/GitHub
+Get-Content ~/.ssh/id_ed25519.pub
+
+# 测试 SSH 连接
+ssh -T git@你的gitlab地址
+```
+
+**处理本地修改冲突**：
+
+切换协议后，如果 `git pull` 报本地修改冲突：
+
+```powershell
+# 方案1：暂存本地修改
+git stash
+git pull
+git stash pop
+
+# 方案2：放弃本地修改（.meta 文件通常可以放弃）
+git checkout -- .
+git pull
+
+# 方案3：先提交再合并
+git add -A
+git commit -m "保存本地修改"
+git pull
+```
+
+**验证记录**：
+
+- [2026-01-30] 初次记录，来源：实践总结。在公司内网 GitLab 仓库遇到此问题，HTTPS 持续失败，改 SSH 后立即解决
+
+**备注**：
+
+- 如果 SSH 也不通，检查防火墙是否阻止了 22 端口
+- 部分网络可能需要使用 SSH over HTTPS（443端口）：`git@ssh.github.com:用户/仓库.git`
+- 子模块（submodule）如果也用了不同协议，需要分别修改
+
+
+---
+
+## 验证记录：Git HTTPS 拉取失败改用 SSH 协议
+
+**日期**：2026-01-30
+**验证状态**：✅ 再次验证成功
+
+**问题现象**：
+`
+git.exe pull --progress -v --no-rebase -- "origin"
+fatal: unable to access 'https://xxx.git/': Recv failure: Connection was aborted
+`
+
+**解决过程**：
+1. 查看当前远程配置：`git remote -v`
+2. 将 HTTPS 改为 SSH：`git remote set-url origin git@服务器地址:命名空间/仓库名.git`
+3. 执行拉取：`git pull` → 成功
+4. 处理本地修改冲突：`git stash` → `git pull` → `git stash pop`
+
+**结论**：
+- 公司内网 GitLab 的 HTTPS 连接不稳定时，SSH 协议是可靠的替代方案
+- 切换协议后需要处理本地未提交的修改（stash 或 commit）
+
+**补充说明**：
+- 终端输出 `fatal: unknown write failure on standard output` 是输出缓冲区问题，不影响 Git 操作结果
