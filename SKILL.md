@@ -13,7 +13,7 @@ license: MIT
 本技能采用 **独立数据目录** 设计，符合 Agent Skills 开放规范，便于技能分发和共享：
 
 ```
-akasha-kt/                      # 当前技能（完全自包含）
+<skill-dir>/                    # 当前技能目录（目录名由 clone 时指定）
 ├── SKILL.md                    # 核心指令（本文件）
 ├── references/                 # 详细文档
 │   ├── INDEX.md                # 分类索引（经验+知识）

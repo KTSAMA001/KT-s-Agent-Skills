@@ -66,16 +66,17 @@ flowchart LR
 
 ```bash
 # macOS / Linux
-git clone https://github.com/KTSAMA001/KT-s-Agent-Skills.git ~/.copilot/skills/akasha-kt
+# 注：目录名可自定义，默认为仓库名
+git clone https://github.com/KTSAMA001/AgentSkill-Akasha-KT.git ~/.copilot/skills/akasha-kt
 
 # Windows (PowerShell)
-git clone https://github.com/KTSAMA001/KT-s-Agent-Skills.git $HOME\.copilot\skills\akasha-kt
+git clone https://github.com/KTSAMA001/AgentSkill-Akasha-KT.git $HOME\.copilot\skills\akasha-kt
 ```
 
 ### Claude Code
 
 ```bash
-git clone https://github.com/KTSAMA001/KT-s-Agent-Skills.git ~/.claude/skills/akasha-kt
+git clone https://github.com/KTSAMA001/AgentSkill-Akasha-KT.git ~/.claude/skills/akasha-kt
 ```
 
 ## ✅ 验证安装
@@ -90,9 +91,9 @@ git clone https://github.com/KTSAMA001/KT-s-Agent-Skills.git ~/.claude/skills/ak
 ## 📂 目录结构
 
 ```
-akasha-kt/                      # 本仓库根目录（技能目录）
+<skill-dir>/                    # 本仓库根目录（目录名由 clone 时指定）
 ├── README.md                   # 本文件
-├── SKILL.md                    # 核心指令
+├── SKILL.md                    # 核心指令（Agent 识别技能的入口）
 ├── references/                 # 详细文档
 │   ├── INDEX.md                # 分类索引
 │   ├── OPERATIONS.md           # 操作流程

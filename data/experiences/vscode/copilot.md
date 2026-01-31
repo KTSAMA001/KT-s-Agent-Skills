@@ -27,8 +27,21 @@
    - Claude Code Skills 目录：`~/.claude/skills/`
    - Claude Code 全局指令：`~/.claude/CLAUDE.md`
 
-2. 创建符号链接共享 Skills：
+2. 克隆技能仓库到两个平台的 skills 目录：
    ```bash
+   # VS Code Copilot（目录名可自定义）
+   git clone https://github.com/KTSAMA001/AgentSkill-Akasha-KT.git ~/.copilot/skills/akasha-kt
+   
+   # Claude Code（目录名建议与上面一致）
+   git clone https://github.com/KTSAMA001/AgentSkill-Akasha-KT.git ~/.claude/skills/akasha-kt
+   ```
+
+   或者使用符号链接共享同一份：
+   ```bash
+   # 先克隆到一个位置
+   git clone https://github.com/KTSAMA001/AgentSkill-Akasha-KT.git ~/.copilot/skills/akasha-kt
+   
+   # 创建符号链接
    mkdir -p ~/.claude/skills
    ln -sf ~/.copilot/skills/akasha-kt ~/.claude/skills/akasha-kt
    ```
@@ -41,18 +54,20 @@
 **最终目录结构**：
 
 ```
-~/.copilot/  (Git 仓库)
-├── CLAUDE.md                           # Claude Code 全局指令
-├── skills/
-│   └── akasha-kt/SKILL.md           # 阿卡西记录技能
-└── data/                               # 记录数据
-    ├── experiences/                     # 经验数据
-    └── knowledge/                      # 知识数据
+~/.copilot/
+├── CLAUDE.md                           # Claude Code 全局指令（可选）
+└── skills/
+    └── <skill-dir>/                    # 技能目录（独立 Git 仓库）
+        ├── SKILL.md                    # 技能入口
+        ├── references/                 # 参考文档
+        └── data/                       # 记录数据
+            ├── experiences/            # 经验数据
+            └── knowledge/              # 知识数据
 
 ~/.claude/
-├── CLAUDE.md -> ~/.copilot/CLAUDE.md   # 符号链接
+├── CLAUDE.md -> ~/.copilot/CLAUDE.md   # 符号链接（可选）
 ├── skills/
-│   └── akasha-kt -> ~/.copilot/skills/akasha-kt
+│   └── <skill-dir> -> ~/.copilot/skills/<skill-dir>  # 符号链接或独立克隆
 └── settings.json                       # Claude Code 设置
 ```
 
@@ -73,9 +88,11 @@
 **验证记录**：
 
 - [2026-01-30] 初次记录，来源：实践总结。配置完成后两边均可正常使用共享的经验记录技能。
+- [2026-02-01] 更新：仓库结构调整，每个技能独立成仓库，data 目录移入技能目录内。
 
 **备注**：
 
 - Claude Code 的 Skills 遵循 [Agent Skills](https://agentskills.io/) 开放标准
-- 修改任何一边的配置后，另一边自动生效（因为是符号链接）
-- Git 仓库只需在 `~/.copilot/` 维护一份即可
+- 技能目录名由用户 clone 时指定，不硬编码在文档中
+- 使用符号链接时，修改任意一边配置后另一边自动生效
+- 每个技能是独立的 Git 仓库，便于跨平台同步
