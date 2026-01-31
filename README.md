@@ -96,7 +96,10 @@ skills/                         # 本仓库根目录
     │   ├── INDEX.md            # 分类索引
     │   ├── OPERATIONS.md       # 操作流程
     │   ├── EXAMPLES.md         # 使用示例
-    │   └── VALIDATION.md       # 验证流程
+    │   ├── VALIDATION.md       # 验证流程
+    │   └── templates/          # 模板文件
+    │       ├── experience-template.md  # 经验记录模板
+    │       └── knowledge-template.md   # 知识记录模板
     └── data/
         ├── experiences/        # 经验数据（问题解决方案）
         └── knowledge/          # 知识数据（概念原理）
