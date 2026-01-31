@@ -15,6 +15,8 @@
 **分类**：图形学 > 渲染管线
 **关键词**：#rendering-pipeline #application-stage #geometry-stage #rasterization-stage
 **来源**：《Unity Shader 入门精要》（冯乐乐著）
+**来源日期**：2016 年（书籍出版）
+**收录日期**：2026-01-30
 **可信度**：⭐⭐⭐⭐⭐ (经典著作 + 广泛认可)
 
 ### 定义/概念
