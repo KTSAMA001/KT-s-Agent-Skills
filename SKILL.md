@@ -27,13 +27,15 @@ license: MIT
 
 ## 触发条件
 
-| 动作 | 触发词 |
-|------|--------|
-| 记录经验 | "记录一下"、"总结经验"、"保存结论"、"归档" |
-| 记录知识 | "记一下这个知识点"、"这个概念记录下来" |
-| 查找记录 | "之前怎么解决的"、"有没有相关经验"、"查一下记录" |
-| 更新记录 | 发现需补充/修正时自动触发 |
-| 网络搜索 | 本地未找到，或用户说"上网查一下" |
+| 动作 | 触发词 | 操作流程 |
+|------|--------|----------|
+| 查找记录 | "之前怎么解决的"、"有没有相关经验" | 一、查找流程 |
+| 记录经验 | "记录一下"、"总结经验"、"归档" | 二、记录流程 |
+| 记录知识 | "记一下这个知识点"、"概念记录下来" | 二、记录流程 |
+| 更新/修正 | "这个不对"、"过时了"、需补充时 | 三、验证流程 |
+| 网络搜索 | 本地未找到，或"上网查一下" | 1.2 网络搜索 |
+
+> ⚠️ **执行任何操作前，必须先读取 `references/OPERATIONS.md` 了解完整流程**
 
 ## 记录格式
 
@@ -89,11 +91,11 @@ license: MIT
 
 ## 详细文档
 
-| 文档 | 路径 |
-|------|------|
-| 分类索引 | `references/INDEX.md` |
-| 操作流程 | `references/OPERATIONS.md` |
-| 使用示例 | `references/EXAMPLES.md` |
-| 验证流程 | `references/VALIDATION.md` |
-| 经验模板 | `references/templates/experience-template.md` |
-| 知识模板 | `references/templates/knowledge-template.md` |
+| 文档 | 路径 | 重要性 |
+|------|------|--------|
+| **操作流程** | `references/OPERATIONS.md` | ⭐⭐⭐ 必读 |
+| 分类索引 | `references/INDEX.md` | ⭐⭐ 查分类时读 |
+| 验证流程 | `references/VALIDATION.md` | ⭐⭐ 修正时读 |
+| 使用示例 | `references/EXAMPLES.md` | ⭐ 参考 |
+| 经验模板 | `references/templates/experience-template.md` | 记录时读 |
+| 知识模板 | `references/templates/knowledge-template.md` | 记录时读 |
