@@ -1,4 +1,16 @@
-# 分类索引
+# 索引
+
+## 参考文档
+
+| 文档 | 路径 | 用途 |
+|------|------|------|
+| **操作流程** | [OPERATIONS.md](./OPERATIONS.md) | 查找/记录/验证的完整流程 |
+| 验证流程 | [VALIDATION.md](./VALIDATION.md) | 修正、废弃记录 |
+| 使用示例 | [EXAMPLES.md](./EXAMPLES.md) | 参考用法 |
+| 经验模板 | [templates/experience-template.md](./templates/experience-template.md) | 记录经验 |
+| 知识模板 | [templates/knowledge-template.md](./templates/knowledge-template.md) | 记录知识 |
+
+---
 
 ## 经验 experiences/
 
@@ -18,12 +30,6 @@
 > 经验模板：[templates/experience-template.md](./templates/experience-template.md)
 
 ## 知识 knowledge/
-
-| 分类 | 文件 |
-|------|------|
-| ai/ | agent-skills |
-| graphics/ | rendering-pipeline, color-space, sdf |
-| hlsl/ | syntax |
 | programming/ | csharp |
 | social/ | ktsama_bilibili, vera_kt_dog |
 | tools/ | git, search-apis, search-engines |

@@ -33,10 +33,7 @@ license: MIT
 | "记录一下"、"总结经验"、"归档"、"记一下这个知识点" | `references/OPERATIONS.md` → **二、记录流程** |
 | "这个不对"、"过时了"、"需要更新" | `references/OPERATIONS.md` → **三、验证流程** |
 | 本地未找到相关记录 | `references/OPERATIONS.md` → **1.2 网络搜索** |
-| 需确定分类 | `references/INDEX.md` |
-| 记录经验 | `references/templates/experience-template.md` |
-| 记录知识 | `references/templates/knowledge-template.md` |
-| 修正/废弃记录 | `references/VALIDATION.md` |
+| 需确定分类、模板、其他文档 | `references/INDEX.md` |
 
 ## 记录格式
 
@@ -90,13 +87,6 @@ license: MIT
 | 经验 | 实践、踩坑 | 怎么做/避坑 | 问题→方案→验证 |
 | 知识 | 书籍、文档 | 是什么/为什么 | 概念→原理→要点 |
 
-## 详细文档
+## 文档查找
 
-| 文档 | 路径 | 重要性 |
-|------|------|--------|
-| **操作流程** | `references/OPERATIONS.md` | ⭐⭐⭐ 必读 |
-| 分类索引 | `references/INDEX.md` | ⭐⭐ 查分类时读 |
-| 验证流程 | `references/VALIDATION.md` | ⭐⭐ 修正时读 |
-| 使用示例 | `references/EXAMPLES.md` | ⭐ 参考 |
-| 经验模板 | `references/templates/experience-template.md` | 记录时读 |
-| 知识模板 | `references/templates/knowledge-template.md` | 记录时读 |
+所有参考文档、模板、分类列表 → `references/INDEX.md`
