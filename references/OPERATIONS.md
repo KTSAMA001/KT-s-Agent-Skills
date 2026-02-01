@@ -38,22 +38,8 @@ flowchart TD
 ### 步骤
 
 1. **判断问题领域**：确定应该检索哪个分类目录
-2. **读取分类索引**：
-   ```
-   read_file("references/INDEX.md") → 获取分类列表
-   ```
-3. **搜索已有记录**：
-   ```
-   # 方式一：语义搜索（推荐，覆盖面广）
-   semantic_search(query="问题关键词")
-   
-   # 方式二：精确搜索（已知关键词时）
-   grep_search(query="关键词", includePattern="data/**/*.md")
-   
-   # 方式三：直接读取分类文件
-   read_file("data/experiences/<分类>/<文件>.md")
-   read_file("data/knowledge/<分类>/<文件>.md")
-   ```
+2. **读取相关文件**：读取对应分类的 md 文件内容
+3. **搜索匹配记录**：根据关键词、标签查找相关经验/知识
 4. **呈现给用户**：
    - 如果找到相关记录，展示内容并询问是否适用
    - 如果未找到，**转入"1.2 网络搜索"**
@@ -70,10 +56,7 @@ flowchart TD
 
 1. **告知用户**："未在记录中找到相关内容，正在上网搜索..."
 2. **构建搜索关键词**：根据问题提取核心关键词
-3. **执行网络搜索**：
-   ```
-   fetch_webpage(urls=["官方文档URL", "技术博客URL"], query="问题描述")
-   ```
+3. **执行网络搜索**：使用 `#fetch` 工具搜索相关资料
 4. **优先搜索来源**（按优先级）：
    - 官方文档（Unity Docs、Microsoft Docs、MDN 等）
    - 官方论坛/讨论区
@@ -113,52 +96,22 @@ flowchart LR
 
 **步骤**：
 
-1. **同步仓库**：
-   ```
-   run_in_terminal(command="cd <skill-dir> && git pull origin main")
-   ```
-2. **确定分类**：
-   ```
-   read_file("references/INDEX.md") → 查看分类列表
-   ```
-3. **检查重复**：
-   ```
-   grep_search(query="相关关键词", includePattern="data/experiences/**/*.md")
-   ```
+1. **同步仓库**：`git pull origin main`
+2. **确定分类**：根据内容主题选择对应的分类文件
+3. **检查重复**：查看目标文件中是否已有类似记录
    - 如有类似 → 转入 **三、验证流程** 进行更新
    - 如无类似 → 继续新增
-4. **读取模板**：
-   ```
-   read_file("references/templates/experience-template.md")
-   ```
-5. **提取要点**：
+4. **提取要点**：
    - 简短标题（一句话概括）
    - 问题/场景描述
    - 解决方案/结论
    - 关键代码片段（如有）
    - 相关标签
    - 参考链接
-6. **追加写入**：
-   ```
-   # 读取现有文件
-   read_file("data/experiences/<分类>/<文件>.md")
-   
-   # 追加新记录（使用 replace_string_in_file 在文件末尾添加）
-   replace_string_in_file(
-     filePath="data/experiences/<分类>/<文件>.md",
-     oldString="<文件末尾内容>",
-     newString="<文件末尾内容>\n\n---\n\n<新记录内容>"
-   )
-   ```
-7. **更新索引**（如新增分类/文件）：
-   ```
-   replace_string_in_file(filePath="references/INDEX.md", ...)
-   ```
-8. **推送更改**：
-   ```
-   run_in_terminal(command="cd <skill-dir> && git add . && git commit -m 'docs: add experience [标题]' && git push")
-   ```
-9. **确认反馈**：告知用户已记录到哪个文件
+5. **格式化内容**：按照经验模板格式化
+6. **追加写入**：将内容追加到对应分类文件末尾
+7. **推送更改**：`git add . && git commit -m "docs: add experience [标题]" && git push`
+8. **确认反馈**：告知用户已记录到哪个文件
 
 **经验分类选择指南**：
 
@@ -174,23 +127,10 @@ flowchart LR
 
 **步骤**：
 
-1. **同步仓库**：
-   ```
-   run_in_terminal(command="cd <skill-dir> && git pull origin main")
-   ```
-2. **确定分类**：
-   ```
-   read_file("references/INDEX.md") → 查看分类列表
-   ```
-3. **检查重复**：
-   ```
-   grep_search(query="知识点关键词", includePattern="data/knowledge/**/*.md")
-   ```
-4. **读取模板**：
-   ```
-   read_file("references/templates/knowledge-template.md")
-   ```
-5. **提取要点**：
+1. **同步仓库**：`git pull origin main`
+2. **确定分类**：判断属于哪个分类（AI/图形学/Unity/编程/HLSL/工具等）
+3. **检查重复**：避免重复记录相同知识点
+4. **提取要点**：
    - 简短标题（知识点名称）
    - 分类和关键词
    - 来源信息（书籍/文档/课程等）
@@ -198,27 +138,10 @@ flowchart LR
    - 原理/详解
    - 关键点
    - 示例（如有）
-6. **追加写入**：
-   ```
-   # 读取现有文件
-   read_file("data/knowledge/<分类>/<文件>.md")
-   
-   # 追加新记录
-   replace_string_in_file(
-     filePath="data/knowledge/<分类>/<文件>.md",
-     oldString="<文件末尾内容>",
-     newString="<文件末尾内容>\n\n---\n\n<新记录内容>"
-   )
-   ```
-7. **更新索引**（如新增分类/文件）：
-   ```
-   replace_string_in_file(filePath="references/INDEX.md", ...)
-   ```
-8. **推送更改**：
-   ```
-   run_in_terminal(command="cd <skill-dir> && git add . && git commit -m 'docs: add knowledge [标题]' && git push")
-   ```
-9. **确认反馈**：告知用户已记录到哪个文件
+5. **格式化内容**：按照知识模板格式化
+6. **追加写入**：将内容追加到目标文件末尾
+7. **推送更改**：`git add . && git commit -m "docs: add knowledge [标题]" && git push`
+8. **确认反馈**：告知用户已记录到哪个文件
 
 **知识分类选择指南**：
 
@@ -248,10 +171,7 @@ flowchart LR
 ### 3.2 验证方法
 
 1. **上下文对比**：检查记录日期和适用版本，对比用户当前技术栈
-2. **官方文档验证**：
-   ```
-   fetch_webpage(urls=["官方文档URL"], query="API 变更 deprecation")
-   ```
+2. **官方文档验证**：查阅官方文档，检查 Breaking Changes 或 Deprecation
 3. **交叉验证**：知识与经验相互验证（详见 VALIDATION.md）
 
 ### 3.3 修正策略
@@ -267,23 +187,11 @@ flowchart LR
 
 **步骤**：
 
-1. **定位记录**：
-   ```
-   grep_search(query="记录标题或关键词", includePattern="data/**/*.md")
-   read_file("data/<类型>/<分类>/<文件>.md")
-   ```
+1. **定位记录**：找到需要更新的条目
 2. **执行更新**：
-   ```
-   replace_string_in_file(
-     filePath="data/<类型>/<分类>/<文件>.md",
-     oldString="<原记录内容>",
-     newString="<更新后的记录内容，包含新的更新日期和验证记录>"
-   )
-   ```
-3. **推送更改**：
-   ```
-   run_in_terminal(command="cd <skill-dir> && git add . && git commit -m 'fix: update [文件名]' && git push")
-   ```
+   - 更新"更新日期"字段
+   - 在"验证记录"中添加本次说明
+3. **推送更改**：`git add . && git commit -m "fix: update [文件名]" && git push`
 4. **反馈用户**：说明更新了什么内容
 
 ---
