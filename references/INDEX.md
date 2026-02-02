@@ -16,20 +16,27 @@
 
 | 分类 | 文件 |
 |------|------|
-| ai/ | mcp, astrbot |
-| anthropic/ | claude-code |
-| csharp/ | syntax, async, linq, patterns, collections, dotnet |
-| git/ | commands, workflow, troubleshooting, lfs |
-| python/ | syntax, libraries, automation, environment, web-scraping |
-| shader/ | hlsl, urp, hdrp, techniques, optimization, effects |
-| tools/ | terminal, build, debug, cicd |
-| unity/ | csharp, physics, shader, vfx, ui, animation, performance, editor, networking, asset |
-| vscode/ | shortcuts, extensions, settings, copilot, debugging |
-| general/ | misc, social-observations |
+| ai/ | astrbot, mcp |
+| anthropic/ | claude-code, README |
+| csharp/ | syntax, async, linq, patterns, collections, dotnet, misc |
+| general/ | misc |
+| git/ | commands, workflow, troubleshooting, lfs, misc |
+| python/ | syntax, libraries, automation, environment, web-scraping, misc |
+| shader/ | hlsl, urp, hdrp, techniques, optimization, effects, misc |
+| tools/ | terminal, build, debug, cicd, misc |
+| unity/ | csharp, physics, shader, vfx, ui, animation, performance, editor, networking, asset, misc, docs/VR_Variant_Collector_Architecture |
+| vscode/ | shortcuts, extensions, settings, copilot, debugging, misc |
+| warm-daily/ | sweet-healing |
 
 > 经验模板：[templates/experience-template.md](./templates/experience-template.md)
 
 ## 知识 knowledge/
+
+| 分类 | 文件 |
+|------|------|
+| ai/ | agent-skills |
+| graphics/ | color-space, rendering-pipeline, sdf |
+| hlsl/ | syntax |
 | programming/ | csharp |
 | social/ | ktsama_bilibili, vera_kt_dog |
 | tools/ | git, search-apis, search-engines |
