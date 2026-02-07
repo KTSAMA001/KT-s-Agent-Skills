@@ -36,4 +36,4 @@
 - **解决方案**：收集时必须强制关闭除 Game View 外的所有窗口。
 
 **详细文档**：
-- [VR变体收集器完整架构文档](./docs/VR_Variant_Collector_Architecture.md)
+- [VR变体收集器完整架构文档](../docs/VR_Variant_Collector_Architecture.md)

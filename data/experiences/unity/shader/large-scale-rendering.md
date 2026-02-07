@@ -103,6 +103,6 @@ Graphics.DrawMeshInstancedProcedural(
 
 **理论基础**：
 
-- [ComputeShader 基础概念](../../knowledge/graphics/compute-shader.md#compute-shader-basics)
-- [GPU 视锥剔除](../../knowledge/graphics/compute-shader.md#gpu-frustum-culling)
-- [PBR BRDF 模型](../../knowledge/graphics/pbr.md#cook-torrance-brdf)
+- [ComputeShader 基础概念](../../../knowledge/graphics/compute-shader.md#compute-shader-basics)
+- [GPU 视锥剔除](../../../knowledge/graphics/compute-shader.md#gpu-frustum-culling)
+- [PBR BRDF 模型](../../../knowledge/graphics/pbr.md#cook-torrance-brdf)

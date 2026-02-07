@@ -24,9 +24,8 @@
 | general | 通用 | 跨领域通用经验 | misc |
 | git | Git | 版本控制、工作流、LFS | commands, workflow, troubleshooting, lfs, misc |
 | python | Python | Python 脚本、自动化、爬虫 | syntax, libraries, automation, environment, web-scraping, misc |
-| shader | Shader | HLSL、URP/HDRP、PBR、NPR、大规模渲染、特效 | hlsl, urp, hdrp, pbr, npr, large-scale-rendering, techniques, optimization, effects, misc |
 | tools | 工具 | 终端、构建、调试、CI/CD | terminal, build, debug, cicd, vitepress, misc |
-| unity | Unity | Unity 引擎全领域经验 | csharp, physics, shader, vfx, ui, animation, performance, editor, networking, asset, misc, docs/VR_Variant_Collector_Architecture, docs/effect-system-review |
+| unity | Unity | Unity 引擎全领域经验 | csharp, physics, vfx, ui, animation, performance, editor, networking, asset, misc, shader/(variants, hlsl, urp, hdrp, pbr, npr, effects, optimization, techniques, large-scale-rendering, misc), docs/VR_Variant_Collector_Architecture, docs/effect-system-review |
 | vscode | VS Code | 快捷键、扩展、配置 | shortcuts, extensions, settings, copilot, debugging, misc |
 
 > 经验模板：[templates/experience-template.md](./templates/experience-template.md)
@@ -43,15 +42,6 @@
 | tools | 工具 | 搜索引擎、API 等工具知识 | search-apis, search-engines, akasha-visualization |
 | unity | Unity | URP、物理、编辑器等 Unity 知识 | urp, physics, rendering, editor, animation, behavior-designer, ai-navigation |
 
-| 分类 | 文件 |
-|------|------|
-| ai/ | agent-skills |
-| graphics/ | color-space, rendering-pipeline, sdf, color-banding, **pbr**, **compute-shader** |
-| hlsl/ | syntax |
-| programming/ | csharp |
-| social/ | ktsama_bilibili, vera_kt_dog |
-| tools/ | search-apis, search-engines, akasha-visualization |
-| unity/ | urp, physics, rendering, editor, animation, behavior-designer, **ai-navigation** |
 > 知识模板：[templates/knowledge-template.md](./templates/knowledge-template.md)
 
 ## 灵感 ideas/

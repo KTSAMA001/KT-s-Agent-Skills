@@ -102,7 +102,7 @@ public override void AddRenderPasses(...)
 
 **理论基础**：
 
-- [Renderer Feature 的要点](../../knowledge/unity/urp.md#renderer-feature-的要点)
+- [Renderer Feature 的要点](../../../knowledge/unity/urp.md#renderer-feature-的要点)
 
 ---
 

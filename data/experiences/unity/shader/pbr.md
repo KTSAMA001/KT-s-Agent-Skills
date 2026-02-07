@@ -75,5 +75,5 @@ for (int i = 0; i < _index; i++)       // 亮度轴
 
 **理论基础**：
 
-- [PBR BRDF 模型详解](../../knowledge/graphics/pbr.md#cook-torrance-brdf)
-- [IBL 间接光照](../../knowledge/graphics/pbr.md#ibl)
+- [PBR BRDF 模型详解](../../../knowledge/graphics/pbr.md#cook-torrance-brdf)
+- [IBL 间接光照](../../../knowledge/graphics/pbr.md#ibl)

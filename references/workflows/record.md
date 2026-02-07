@@ -25,7 +25,7 @@
 - **Unity 相关** → `experiences/unity/*`
 - **编程语言** → `experiences/csharp/`、`experiences/python/` 等
 - **工具/开发** → `experiences/tools/`、`experiences/git/` 等
-- **其他领域** → `experiences/ai/`、`experiences/shader/` 等
+- **其他领域** → `experiences/ai/` 等
 
 ### 2.2 提取要点清单
 - **标题**：一句话概括问题与方案
@@ -44,7 +44,7 @@
 
 ### 3.1 推荐分类
 参考 [INDEX.md](../INDEX.md) 中的**知识分类表**查看所有可用分类及其文件。根据知识性质选择对应分类：
-- **图形学** → `knowledge/graphics/`、`knowledge/hlsl/`
+- **图形学** → `knowledge/graphics/`
 - **编程** → `knowledge/programming/csharp.md`
 - **工具** → `knowledge/tools/*`
 - **其他** → `knowledge/ai/`、`knowledge/social/` 等
